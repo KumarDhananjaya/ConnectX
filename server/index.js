@@ -7,6 +7,7 @@ import multer from "multer";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
+import authRoutes from "./routes/auth.js";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js";
 
@@ -48,3 +49,5 @@ mongoose.connect(process.env.MONGO_URL, {
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", upload.single("picture"), register);
+
+app.use("/auth", authRoutes);
