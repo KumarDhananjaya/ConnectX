@@ -8,6 +8,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js";
 
@@ -51,3 +52,4 @@ mongoose.connect(process.env.MONGO_URL, {
 app.post("/auth/register", upload.single("picture"), register);
 
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
