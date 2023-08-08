@@ -9,7 +9,8 @@ import morgan from "morgan";
 import path from "path";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-import createPost from "./controllers/posts.js"
+import postRoutes from "./routes/posts.js";
+import { createPost } from "./controllers/posts.js"
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js";
 import { verifyToken } from "./middleware/auth.js";
