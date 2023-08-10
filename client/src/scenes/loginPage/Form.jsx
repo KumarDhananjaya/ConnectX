@@ -56,7 +56,10 @@ const Form = () => {
     const isLogin = pageType === "login";
     const isRegister = pageType === "register";
 
-    const handleFormSubmit = async (values, onSubmitProps) => {};
+    const handleFormSubmit = async (values, onSubmitProps) => {
+        if (isLogin) await login(values, onSubmitProps);
+        if (isRegister) await register(values, onSubmitProps);
+    };
 
     return (
         <Formik 
@@ -156,7 +159,7 @@ const Form = () => {
                                                 sx={{ "&:hover": {cursor: "pointer"}}}
                                             >
                                                 <input {...getInputProps()} /> 
-                                                {!value.picture ? (
+                                                {!values.spicture ? (
                                                     <p> Add Picture Here</p>
                                                 ): (
                                                     <FlexBetween>
