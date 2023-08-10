@@ -44,25 +44,22 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({email: email});
+        const user = await User.findOne({ email: email });
 
-        if(!user){
-            return res.status(400).json({msg: "User does not exist"});
+        if (!user) {
+            return res.status(400).json({ msg: "User does not exist" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if(!isMatch) {
-            return res.status(400).json({msg: "Invalid Credentials"});
-        
+        if (!isMatch) {
+            return res.status(400).json({ msg: "Invalid Credentials" });
         }
 
-        const token = jwt.sign({id: user.id}, process.env.JWT_SCERET);
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SCERET);
         delete user.password;
-        res.send(200).json({ token, user });
+        res.status(200).json({ token, user });
 
     } catch (error) {
-
-        res.status(500).json({error: error.message});
-        
+        res.status(500).json({ error: error.message });
     }
-}
+};
