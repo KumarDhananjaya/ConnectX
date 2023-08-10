@@ -56,6 +56,30 @@ const Form = () => {
     const isLogin = pageType === "login";
     const isRegister = pageType === "register";
 
+    const register = async (values, onSubmitProps) => {
+        //this allows to send form info with image
+        const formData = new FormData();
+        for (let value in values){
+            formData.append(value, values[value])
+        }
+        formData.append('picturePath', values.picture.name);
+
+        const savedUserResponse = await fetch(
+            "http://localhost:3001/auth/register",
+            {
+                method: "POST",
+                body: formData,
+            }
+        );
+        const savedUser = await savedUserResponse.json();
+        onSubmitProps.resetForm();
+
+        if(savedUser){
+            setPageType("login");
+        }
+    };
+
+
     const handleFormSubmit = async (values, onSubmitProps) => {
         if (isLogin) await login(values, onSubmitProps);
         if (isRegister) await register(values, onSubmitProps);
@@ -159,7 +183,7 @@ const Form = () => {
                                                 sx={{ "&:hover": {cursor: "pointer"}}}
                                             >
                                                 <input {...getInputProps()} /> 
-                                                {!values.spicture ? (
+                                                {!values.picture ? (
                                                     <p> Add Picture Here</p>
                                                 ): (
                                                     <FlexBetween>
