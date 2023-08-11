@@ -5,10 +5,10 @@ const UserImage = ( { image, size="60px"}) => {
         <Box>
             <img 
                 style={{objectFit: "cover", borderRadius: "50%"}}
-                width={size.width}
-                height={size.height}
+                width={size}
+                height={size}
                 alt="user"
-                src={`http://localhost:3001/assests/${image}`}
+                src={`http://localhost:3001/assets/${image}`}
             />
         </Box>
     )
