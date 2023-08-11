@@ -6,6 +6,7 @@ import {
   useMediaQuery,
   Typography,
   useTheme,
+
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
@@ -74,6 +75,7 @@ const Form = () => {
     onSubmitProps.resetForm();
 
     if (savedUser) {
+      alert("Successfully registered");
       setPageType("login");
     }
   };
