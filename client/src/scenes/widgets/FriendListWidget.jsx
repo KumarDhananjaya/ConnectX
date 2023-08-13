@@ -47,5 +47,7 @@ const FriendListWidget = ({ userId }) => {
 
         </Box>
         </WidgetWrapper>
-    )
-}
+    );
+};
+
+export default FriendListWidget;
