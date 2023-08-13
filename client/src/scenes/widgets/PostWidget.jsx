@@ -88,7 +88,7 @@ const PostWidget = ({
                     {/* COMMENT SECTION*/}
 
                     <FlexBetween gap="0.3rem">
-                        <IconButton onClick={()=> setIsComments}>
+                        <IconButton onClick={()=> setIsComments(!isComments)}>
                                 <ChatBubbleOutlineOutlined />
                         </IconButton>
                         <Typography>{comments.length}</Typography>
