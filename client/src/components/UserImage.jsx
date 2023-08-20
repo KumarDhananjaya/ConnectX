@@ -8,7 +8,7 @@ const UserImage = ( { image, size="60px"}) => {
                 width={size}
                 height={size}
                 alt="user"
-                src={`http://localhost:3001/assets/${image}`}
+                src={`https://connectx-server-141e1e495080.herokuapp.com/assets/${image}`}
             />
         </Box>
     )
