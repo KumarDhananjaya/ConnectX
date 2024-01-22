@@ -27,6 +27,6 @@
     "multer-gridfs-storage": "^5.0.2"
   },
   "engines": {
-    "node": "20.2.0" 
+    "node": "20.2.0"
   }
 }
