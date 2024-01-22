@@ -1,3 +1,8 @@
+This app is made demonstrate CRUD Operations in MERN Stack.
+if any problem in logging in to the app use the below credentials
+Email: k@gmail.com
+Password: 1234
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
